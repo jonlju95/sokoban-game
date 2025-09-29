@@ -1,0 +1,21 @@
+.tile {
+  aspect-ratio: 1/1;
+  border: 1px solid rgba(227, 227, 227, 0.2);
+  min-width: 3rem;
+}
+
+.W {
+  background-color: rosybrown;
+}
+
+.B {
+  background-color: dodgerblue;
+}
+
+.G {
+  background-color: slategrey;
+}
+
+.P {
+  background-color: rebeccapurple;
+}
