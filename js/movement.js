@@ -24,45 +24,54 @@ const setupPlayerMovement = () => {
 }
 
 const checkVerticalPlayerMovement = (direction) => {
-  let board = tileMap01.mapGrid;
-
   let playerPosition = findPlayerIndex(board);
-  let newPosition = checkTargetTile([playerPosition[0] + direction, playerPosition[1]]);
+  let target = [playerPosition[0] + direction, playerPosition[1]];
+  let next = [playerPosition[0] + (direction * 2), playerPosition[1]];
 
-  if (playerPosition !== undefined && newPosition) {
-    board[playerPosition[0]][playerPosition[1]][0] = ' ';
-    board[playerPosition[0] + direction][playerPosition[1]][0] = 'P';
-    redrawBoard(board);
+  if (checkPlayerMovement(playerPosition, target, next) !== playerPosition) {
+    redrawBoard();
   }
 }
 
 const checkHorizontalPlayerMovement = (direction) => {
-  let board = tileMap01.mapGrid;
-
   let playerPosition = findPlayerIndex(board);
-  let newPosition = checkTargetTile([playerPosition[0], playerPosition[1] + direction]);
+  let target = [playerPosition[0], playerPosition[1] + direction];
+  let next = [playerPosition[0], playerPosition[1] + (direction * 2)];
 
-  if (playerPosition !== undefined && newPosition) {
-    let oldPosition = board[playerPosition[0]][playerPosition[1]][0];
-    board[playerPosition[0]][playerPosition[1]][0] = ' ';
-    board[playerPosition[0]][playerPosition[1] + direction][0] = 'P';
-    redrawBoard(board);
+  if (checkPlayerMovement(playerPosition, target, next) !== playerPosition) {
+    redrawBoard();
   }
+}
+
+const checkPlayerMovement = (playerPos, target, next) => {
+  let currentTile = board[playerPos[0]][[playerPos[1]]];
+  let targetTile = board[target[0]][target[1]];
+
+  if (targetTile.entity === 'B') {
+    const nextTile = board[next[0]][next[1]];
+    if(nextTile.entity === null && nextTile.base !== 'W') {
+      nextTile.entity = 'B';
+      targetTile.entity = 'P';
+      currentTile.entity = null;
+      return target;
+    }
+  } else if (targetTile.base !== 'W' && targetTile.entity === null) {
+    targetTile.entity = 'P';
+    currentTile.entity = null;
+    return target;
+  }
+  return playerPos;
 }
 
 const findPlayerIndex = (board) => {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[i].length; j++) {
-      if (board[i][j][0] === 'P') {
+      if (board[i][j].entity === 'P') {
         return [i, j];
       }
     }
   }
   return null;
-}
-
-const checkTargetTile = (position) => {
-  return tileMap01.mapGrid[position[0]][position[1]][0] !== 'W';
 }
 
 setupPlayerMovement();
