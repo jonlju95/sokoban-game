@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="goal"
+   xmlns="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <path
+       id="path7-8"
+       style="fill-opacity:1;stroke:#373f47;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+       d="M 85,84.999998 15,15.000002 M 84.999994,15 15.000002,85" />
+  </g>
+</svg>

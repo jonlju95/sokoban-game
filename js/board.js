@@ -32,6 +32,8 @@ const redrawBoard = () => {
 const resetBoard = () => {
   board = createBoardFromBoardArray();
   document.getElementsByClassName("boardSection")[0].innerHTML = "";
+  noOfMoves = 0;
+  document.getElementById("movesCounter").innerText = "Number of moves: " + noOfMoves;
   renderBoard();
 }
 
@@ -74,7 +76,11 @@ const checkForCompletion = () => {
   })
 
   if (filledGoalTiles === 6) {
-    console.log("Solved");
+    let instructions = document.getElementsByClassName("instructions")[0];
+    let solved = document.createElement("h2");
+    solved.innerText = "Solved";
+    instructions.appendChild(solved);
+    disableMovement();
   }
 }
 

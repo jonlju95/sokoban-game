@@ -1,4 +1,5 @@
-/* Base reset */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
+
 *,
 *::before,
 *::after {
@@ -14,14 +15,12 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  font-family: system-ui, sans-serif;
+  font-family: "Nunito", sans-serif;
   line-height: 1.5;
 
-  /* Prevent layout shift from scrollbars */
   overflow-y: auto;
   overflow-x: hidden;
 
-  /* Optional: neutral background */
   background-color: #e1e1e1;
   color: #222;
 }
@@ -34,15 +33,16 @@ main {
 
   .boardSection {
     margin-right: 3rem;
-    width: calc(100vw/3 * 2);
-    padding: 3rem;
+    width: calc(100vw / 3 * 2);
+    max-height: calc(100vh - 4rem);
+    padding: 2rem;
     background-color: whitesmoke;
     border-radius: 12px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   .instructionsSection {
-    width: calc(100vw/3);
+    width: calc(100vw / 3);
   }
 }
 
@@ -52,6 +52,7 @@ button {
   color: #e9e9e9;
   padding: 1rem 2rem;
   cursor: pointer;
+  font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 12px;
@@ -61,4 +62,8 @@ button {
     border: #8b97ad;
     background: #8993a3 !important;
   }
+}
+
+h1 {
+  font-size: 4rem;
 }

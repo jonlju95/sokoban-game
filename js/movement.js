@@ -1,26 +1,24 @@
-const setupPlayerMovement = () => {
-  document.addEventListener("keydown", (event) => {
-    switch (event.key) {
-      case "ArrowUp":
-      case "w":
-        checkVerticalPlayerMovement(-1);
-        break;
-      case "ArrowDown":
-      case "s":
-        checkVerticalPlayerMovement(1);
-        break;
-      case "ArrowLeft":
-      case "a":
-        checkHorizontalPlayerMovement(-1);
-        break;
-      case "ArrowRight":
-      case "d":
-        checkHorizontalPlayerMovement(1);
-        break;
-      default:
-        break;
-    }
-  });
+const setupPlayerMovement = (event) => {
+  switch (event.key) {
+    case "ArrowUp":
+    case "w":
+      checkVerticalPlayerMovement(-1);
+      break;
+    case "ArrowDown":
+    case "s":
+      checkVerticalPlayerMovement(1);
+      break;
+    case "ArrowLeft":
+    case "a":
+      checkHorizontalPlayerMovement(-1);
+      break;
+    case "ArrowRight":
+    case "d":
+      checkHorizontalPlayerMovement(1);
+      break;
+    default:
+      break;
+  }
 }
 
 const checkVerticalPlayerMovement = (direction) => {
@@ -29,6 +27,7 @@ const checkVerticalPlayerMovement = (direction) => {
   let next = [playerPosition[0] + (direction * 2), playerPosition[1]];
 
   if (checkPlayerMovement(playerPosition, target, next) !== playerPosition) {
+    updateMoves();
     redrawBoard();
   }
 }
@@ -39,6 +38,7 @@ const checkHorizontalPlayerMovement = (direction) => {
   let next = [playerPosition[0], playerPosition[1] + (direction * 2)];
 
   if (checkPlayerMovement(playerPosition, target, next) !== playerPosition) {
+    updateMoves();
     redrawBoard();
   }
 }
@@ -49,7 +49,7 @@ const checkPlayerMovement = (playerPos, target, next) => {
 
   if (targetTile.entity === 'B') {
     const nextTile = board[next[0]][next[1]];
-    if(nextTile.entity === null && nextTile.base !== 'W') {
+    if (nextTile.entity === null && nextTile.base !== 'W') {
       nextTile.entity = 'B';
       targetTile.entity = 'P';
       currentTile.entity = null;
@@ -74,4 +74,15 @@ const findPlayerIndex = (board) => {
   return null;
 }
 
-setupPlayerMovement();
+const updateMoves = () => {
+  noOfMoves += 1;
+  let counter = document.getElementById("movesCounter");
+  counter.innerText = "Number of moves: " + noOfMoves;
+}
+
+const disableMovement = () => {
+  document.removeEventListener('keydown', setupPlayerMovement);
+}
+
+document.addEventListener("keydown", setupPlayerMovement);
+let noOfMoves = 0;
