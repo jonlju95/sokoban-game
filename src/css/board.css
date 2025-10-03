@@ -14,7 +14,7 @@
 }
 
 .entity-block {
-  background-image: url("/images/box.svg");
+  background-image: url("/src/imagesages/box.svg");
   background-attachment: inherit;
   background-size: cover;
   background-origin: border-box;
@@ -22,7 +22,7 @@
 }
 
 .tile-goal {
-  background-image: url("/images/goal.svg");
+  background-image: url("/src/imagesages/goal.svg");
   background-attachment: inherit;
   background-size: cover;
   background-origin: border-box;
@@ -30,7 +30,7 @@
 }
 
 .entity-player {
-  background-image: url("/images/blob.svg");
+  background-image: url("/src/imagesages/blob.svg");
   background-attachment: inherit;
   background-size: cover;
   background-origin: border-box;
@@ -38,7 +38,7 @@
 }
 
 .entity-block-goal {
-  background-image: url("/images/box.svg");
+  background-image: url("/src/imagesages/box.svg");
   background-attachment: inherit;
   background-size: cover;
   background-origin: border-box;

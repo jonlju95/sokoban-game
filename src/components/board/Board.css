@@ -1,0 +1,13 @@
+.boardSection {
+  margin-right: 3rem;
+  width: calc(100vw / 3 * 2);
+  max-height: calc(100vh - 4rem);
+  padding: 2rem;
+  background-color: whitesmoke;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  display: grid;
+  grid-template-columns: repeat(19, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}

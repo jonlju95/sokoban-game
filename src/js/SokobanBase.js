@@ -2,14 +2,14 @@
 /*   This is the base file for the Sokoban assignment - include this one in your HTML page, before you add the main script file*/
 
 /*   Enum of CSS Classes for the static elements   */
-const Tiles = {
+export const Tiles = {
     Wall: "tile-wall",
     Space: "tile-space",
     Goal: "tile-goal"
 };
 
 /*   Enum of CSS Classes for the moving elements   */
-const Entities = {
+export const Entities = {
     Character: "entity-player",
     Block: "entity-block",
     BlockDone: "entity-block-goal"
@@ -21,7 +21,7 @@ const Entities = {
     P = Player starting position
     G = Goal area for the blocks
 */
-let tileMap01 = {
+export let tileMap01 = {
     width: 19,
     height: 16,
     mapGrid: [

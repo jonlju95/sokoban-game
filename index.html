@@ -1,36 +1,13 @@
 <!doctype html>
-<html class="no-js" lang="">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sokoban game</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/board.css">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-</head>
-
-<body>
-
-<main>
-  <section class="boardSection">
-    <!-- Populated with functions in board.js -->
-  </section>
-  <section class="instructionsSection">
-    <div class="instructions">
-      <h1>Sokoban</h1>
-      <h2>Instructions</h2>
-      <p>Move using the arrow keys or WASD. Get all blocks over to the goal tiles to solve</p>
-      <button onclick="resetBoard()">Reset</button>
-      <p id="movesCounter">Number of moves: 0</p>
-    </div>
-  </section>
-</main>
-
-<script src="js/SokobanBase.js"></script>
-<script src="js/board.js"></script>
-<script src="js/movement.js"></script>
-
-</body>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sokoban-game</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
